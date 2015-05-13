@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<module>
+  <id>937A62D4-B397-4BA7-9E2C-28D089E26E57</id>
+  <name>SpotfireDomViewer</name>
+  <version>1.0.0.0</version>
+  <intendedClient>Core</intendedClient>
+  <assemblies>
+    <assembly>
+      <fullname>SpotfireDomViewer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=39fe21ca2fa1ef96</fullname>
+      <codebase>SpotfireDomViewer.dll</codebase>
+      <compatibility>
+        <min-version>0.0.0.0</min-version>
+        <max-version>#.#.*.*</max-version>
+      </compatibility>
+    </assembly>
+    <assembly>
+      <fullname>Xceed.Wpf.Toolkit, Version=2.3.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4</fullname>
+      <codebase>Xceed.Wpf.Toolkit.dll</codebase>
+      <compatibility>
+        <min-version>0.0.0.0</min-version>
+        <max-version>#.#.*.*</max-version>
+      </compatibility>
+    </assembly>
+  </assemblies>
+  <extensions>
+    <addIn fullTypeName="SpotfireDomViewer.DomViewerAddIn, SpotfireDomViewer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=39fe21ca2fa1ef96" />
+  </extensions>
+</module>

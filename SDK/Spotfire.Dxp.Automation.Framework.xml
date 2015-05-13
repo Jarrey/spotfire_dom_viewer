@@ -1,0 +1,1062 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Spotfire.Dxp.Automation.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:Spotfire.Dxp.Automation.Framework.JobStatus">
+            <summary>Static class that contains status strings for the execution of jobs.
+            Used by ASAutomationWorker and the web service (linked to this), to communicate? PAsp 090821.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.InProgress">
+            <summary>Job is running.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Finished">
+            <summary>Job finished OK.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Failed">
+            <summary>Job failed.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Missing">
+            <summary>Job file missing.</summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.JobStatus.GetStatus(System.String)">
+            <summary>Get the status enum, from the status text.</summary>
+            <param name="text">The status text.</param>
+            <returns>The status enum</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.JobStatus.GetStatusText(Spotfire.Dxp.Automation.Framework.JobStatus.Status)">
+            <summary>Get the status text, from the status enum.</summary>
+            <param name="status">The status enum.</param>
+            <returns>The status text</returns>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.JobStatus.Status">
+            <summary>The status as an enum.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Status.InProgress">
+            <summary>Job in progress.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Status.Finished">
+            <summary>Job finished.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Status.Failed">
+            <summary>Job failed.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Status.Missing">
+            <summary>Job not found.</summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.JobStatus.Status.NotSet">
+            <summary>Job text cannot be parsed.</summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.DefaultDocumentName">
+            <summary>
+              Looks up a localized string similar to No document path.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.DefaultErrorMessage">
+            <summary>
+              Looks up a localized string similar to Unable to perform operation. See details for more information..
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.Error">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagDate">
+            <summary>
+              Looks up a localized string similar to The date.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagDateMMDDYYYY">
+            <summary>
+              Looks up a localized string similar to The date as MM-DD-YYYY (example 10-29-1929).
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagDateYYYYMMDD">
+            <summary>
+              Looks up a localized string similar to The date as YYYY-MM-DD (example: 1929-10-29).
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagPath">
+            <summary>
+              Looks up a localized string similar to The path of the currently open analysis document.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagTime">
+            <summary>
+              Looks up a localized string similar to The time.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.TagTime24hr">
+            <summary>
+              Looks up a localized string similar to The time in 24 hour format.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Properties.Resources.Warning">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.TaskEditingContext">
+            <summary>
+            Context class for Task editor views, providing access to the AnalysisApplication, tags and some other state.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.TaskEditingContext.changeCount">
+            <summary>
+            For tracking "has document changed"
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskEditingContext.NotifyChange">
+            <summary>
+            Call whenever the job has changed because of editing (the job itself or any of its tasks)
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskEditingContext.SetChangeCount(System.Int32)">
+            <summary>
+            Sets the value and fires event handler if necessary
+            </summary>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskEditingContext.ClearChangeFlag">
+            <summary>
+            Clears the "document changed" state. Used by the Job Builder dialog.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskEditingContext.#ctor(Spotfire.Dxp.Application.AnalysisApplication)">
+            <summary>
+            Creates an instance of the task executor context class.
+            </summary>
+            <param name="application">The AnalysisApplication instance </param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskEditingContext.CreateContext(Spotfire.Dxp.Application.AnalysisApplication)">
+            <summary>
+            Creates an instance of the task executor context class
+            </summary>
+            <param name="application">The AnalysisApplication instance </param>
+            <returns>A new instance</returns>
+        </member>
+        <member name="E:Spotfire.Dxp.Automation.Framework.TaskEditingContext.HasChangedChanged">
+            <summary>
+            Triggered when the value of HasChanged changed
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskEditingContext.Application">
+            <summary>
+            The TIBCO Spotfire Analysis Application.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskEditingContext.ShowGUIDs">
+            <summary>
+            The setting for "show GUIDs" in the job editor dialog.
+            When true, task editor fields should show raw GUIDs for tables, columns etc and make
+            then editable. When false, task editor fields should show nice display names readonly.
+            When this value changes, the task editor is reloaded, so you can depend on this value not to change while your
+            editor control is alive.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskEditingContext.ShowGuidFields">
+            <summary>
+            The setting for "show GUIDs" in the job editor dialog.
+            When true, task editor fields should show raw GUIDs for tables, columns etc and make
+            then editable. When false, task editor fields should show nice display names readonly.
+            When this value changes, the task editor is reloaded, so you can depend on this value not to change while your
+            editor control is alive.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskEditingContext.HasChanged">
+            <summary>
+            Returns true if the current job has changed since it was loaded or created
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.BaseTasksControl">
+            <summary>
+            Base class for Tasks Controls.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.UpdateControls">
+            <summary>
+            Sets the IsUpdating property to true and invokes UpdateControlsCore. Override UpdateControlsCore
+            to perform the actual work.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.UpdateControlsCore">
+            <summary>
+            Override to update the content of controls.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.AddEventsCore">
+            <summary>
+            Override to add events after the context has been installed
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.RemoveEventsCore">
+            <summary>
+            Override to tear down events added in AddEventsCore
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.RemoveEvents">
+            <summary>
+            Called when disposing the control
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.SaveChangesAndNotify``1(``0,System.Action{``0})">
+            <summary>
+            If IsUpdating is false, performs the model change and calls
+            EditingContext.NotifyUpdate.
+            Use in your event handlers to set the "document dirty" flag.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.BaseTasksControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.BaseTasksControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.BaseTasksControl.toolTip">
+            <summary>ToolTip support</summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.BaseTasksControl.TooltipControl">
+            <summary>Tooltip control for the user control.</summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.BaseTasksControl.EditingContext">
+            <summary>
+            Gets the editing context to retrieve for example the Spotfire AnalysisApplication instance.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.BaseTasksControl.IsUpdating">
+            <summary>
+            Returns true while controls are being updated. Use this property in UI 
+            event handlers to prevent model updates.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Extension.RegisterTasksAddIn">
+            <summary>
+            Base AddIn class to subclass for your extension projects.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.RegisterTasksAddIn.#ctor">
+            <summary>
+            Construction.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.RegisterTasksAddIn.OnGlobalServicesRegistered(Spotfire.Dxp.Application.Extension.AddIn.ServiceProvider)">
+            
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.RegisterTasksAddIn.RegisterTasks(Spotfire.Dxp.Automation.Extension.TaskRegistrar)">
+            <summary>
+            Gets called once the framework is up.
+            Implement this to register your tasks and their executors.
+            </summary>
+            <param name="registrar">The registrar helper</param>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Extension.TaskRegistrar">
+            <summary>
+            The registrar helper for registering tasks 
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskRegistrar.#ctor(Spotfire.Dxp.Automation.Framework.TaskRegistry)">
+            <summary>
+            Construction.
+            </summary>
+            <param name="registry">The registry for Automation Services tasks.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskRegistrar.Register(Spotfire.Dxp.Automation.Extension.Task)">
+            <summary>
+            Registers task for serialization/deserialization purposes
+            </summary>
+            <param name="task">The task that will be registered.</param>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.FrameworkAddIn">
+            <summary>
+            Services-registering addin
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.Job">
+            <summary>
+            The Job class that holds a list of tasks
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.Deserialize(System.IO.Stream,System.IServiceProvider)">
+            <summary>
+            Deserializes the contents of a stream to an instance of Job.
+            </summary>
+            <param name="stream">The xml stream.</param>
+            <param name="serviceProvider">A service provider for accessing the Spotfire service registry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.Deserialize(System.String,System.IServiceProvider)">
+            <summary>
+            Deserializes the contents of a file to an instance of Job.
+            </summary>
+            <param name="filePath">The path to the xml file.</param>
+            <param name="serviceProvider">A service provider for accessing the Spotfire service registry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.Deserialize(System.Xml.XmlDocument,System.IServiceProvider)">
+            <summary>
+            Deserializes the contents of an xml document to an instance of Job.
+            </summary>
+            <param name="doc">The xml document.</param>
+            <param name="serviceProvider">A service provider for accessing the Spotfire service registry.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.PreProcessXmlDocument(System.Xml.XmlDocument,System.Xml.Serialization.XmlAttributeOverrides)">
+            <summary>
+            Pre-process the document to validate,
+            find unknown tasks etc
+            </summary>
+            <param name="doc"></param>
+            <param name="attributeOverrides"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.ReplaceWithUnknownTask(System.Xml.XmlElement)">
+            <summary>
+            Replaces an xml node with special-crafted xml that will instantiate an UnknownTask
+            while preserving everything in the original xml
+            </summary>
+            <param name="unknownOp"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.CreateXmlSerializer(System.Xml.Serialization.XmlAttributeOverrides)">
+            <summary>
+            Creates an XmlSerializer for Job including all registered Task subclasses
+            </summary>
+            <param name="attrs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.Serialize(Spotfire.Dxp.Automation.Framework.Job,System.Xml.XmlWriter,System.IServiceProvider)">
+            <summary>
+            Serializes the given job using a specific xmlWriter
+            </summary>
+            <param name="job"></param>
+            <param name="xmlWriter"></param>
+            <param name="serviceProvider"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.ReplaceUnknownTaskNodes(System.Xml.XmlDocument)">
+            <summary>
+            Replaces xml produced by serializing the UnknownTask instances
+            back to the original xml (inverse of what we do in deserialize)
+            </summary>
+            <param name="doc"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.Job.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.Job.Tasks">
+            <summary>
+            The list of tasks to execute in order
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Extension.Task">
+            <summary>
+            Base task class.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.#ctor(System.String,System.String)">
+            <summary>
+            Pass the default title and display description to the base class constructor
+            </summary>
+            <param name="title">Title used for diagnostic purposes</param>
+            <param name="description">User-displayed description</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.CreateFromTemplate(Spotfire.Dxp.Automation.Extension.Task)">
+            <summary>
+            Creates a new Task based on the template from the task registry.
+            </summary>
+            <param name="template">The task template to use.</param>
+            <returns>A clone of the template task</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.ExecuteCore(Spotfire.Dxp.Automation.Extension.TaskExecutionContext)">
+            <summary>Implement this method to perform the task specific logic.
+            </summary>
+            <returns>The return status from executing the task.</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.Execute(Spotfire.Dxp.Automation.Extension.TaskExecutionContext)">
+            <summary>Executes the task.
+            </summary>
+            <returns>The execution status.</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.Clone">
+            <summary>
+            Returns a clone of the task
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.CloneFieldsToCore(Spotfire.Dxp.Automation.Extension.Task)">
+            <summary>
+            Override to make copies of mutable non-value-type fields
+            (e.g. lists and other objects but not strings since they are immutable)
+            and store in the memberwiseClone instance.
+            The base implementation does nothing since the base class only has a string field.
+            </summary>
+            <param name="memberWiseClone">The new instance in which to store the values</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.As``1">
+            <summary>
+            Convenience method used to typecast to a subclass of <see cref="T:Spotfire.Dxp.Automation.Extension.Task"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns>null if the cast failed</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.Task.System#ICloneable#Clone">
+            <summary>
+            ICloneable implementation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Extension.Task.Title">
+            <summary>
+            The title of the task. Used mainly for diagnostic purposes, e.g. when a class cannot be deserialized
+            since it hasn't been registered.
+            </summary>
+            <seealso cref="T:Spotfire.Dxp.Automation.Extension.RegisterTasksAddIn"/>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Extension.Task.Description">
+            <summary>
+            Task description as provided by the subclass constructor.
+            The task description is not serialized.
+            It is only used when presenting information about the available tasks, 
+            in which case the task is registered with the task registry.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Extension.TaskExecutionContext">
+            <summary>
+            Context class for Automation Services Task Executors, providing access to the AnalysisApplication,
+            tag expansion and other runtime services.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.#ctor(Spotfire.Dxp.Application.AnalysisApplication)">
+            <summary>
+            Creates an instance of the Automation Services task executor context class.
+            Will also create all static tag replacements - the current date/time when executing
+            this constructor will be used for all date/time-based replacement tags
+            </summary>
+            <param name="application">The TIBCO Spotfire Application</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.CreateStaticTagReplacements">
+            <summary>
+            Caches all tags that are marked as static (e.g. time) so that all replacements will use the same value
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.ExpandTags(System.String)">
+            <summary>
+            Handles all the tags in a string and returns a string where the tags have been replaced with their values.
+            </summary>
+            <param name="containingTags">String containing tags, such as {date} or {time}.</param>
+            <returns>The string where the tags have been replace with their values.
+            If containingTags is null, the method return an empty string instead</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.GetPreference(System.String,System.String)">
+            <summary>
+             Returns the string value for a given named preference
+            </summary>
+            <param name="preferenceName">The string that identifies the preference</param>
+            <param name="defaultValue">The value to return if the preference couldn't be found</param>
+            <returns>A string value</returns>
+             <remarks>It is up to the execution environment to provide this implementation.
+             In the normal (executing on a server) case, settings are stored in .config files.</remarks>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.GetAnalyticsServerUri">
+            <summary>
+            Returns the uri of the Analytics Server using the ConnectivityService service
+            </summary>
+            <returns>Null if there is no current server connection</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.CreateWebPlayerLibraryLink(Spotfire.Dxp.Application.AnalysisApplication,System.String,System.String)">
+            <summary>Creates a link to a TIBCO Spotfire Web Player file for a given library file.
+            This requires the link to the Web Client server to be set in 
+            TIBCO Spotfire Administration manager.</summary>    
+            <param name="application">The started <see cref="T:Spotfire.Dxp.Application.AnalysisApplication"/></param>
+            <param name="path">The absolute path to the library folder (or section) where the file is.
+            expected: "section/[folder/../folder&gt;/]".</param> 
+            <param name="name">The name of the library file to open (no extension).</param> 
+            <returns>The Url.</returns>
+            <exception cref="T:System.ArgumentException">If web client url not set in preferences.</exception>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.DeleteLibraryFile(Spotfire.Dxp.Application.AnalysisApplication,System.String,System.String)">
+            <summary>Delete the file from the library.</summary>
+            <param name="application">The started <see cref="T:Spotfire.Dxp.Application.AnalysisApplication"/></param>
+            <param name="path">The absolute path to the library folder (or section) where the file is.
+            expected: "section/[folder/../folder&gt;/]".</param> 
+            <param name="name">The name of the library file to open (no extension).</param> 
+            <exception cref="T:Spotfire.Dxp.Framework.Library.LibraryException">If the file doesn't exist.</exception>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.LibraryPathToId(Spotfire.Dxp.Application.AnalysisApplication,System.String)">
+            <summary>Finds the id of the Library analysis entry with the given 
+            <paramref name="path"/>.
+            </summary>
+            <param name="application">
+            The application object to use to perform the look-up.
+            </param>
+            <param name="path">
+            The path for which the id will be found.
+            </param>
+            <returns>
+            The id of the Library entry at the path given by 
+            <paramref name="path"/>.</returns>
+            
+            <exception cref="T:System.ArgumentException">
+            <paramref name="application"/> is <c>null</c> or
+            <paramref name="path"/> is <c>null</c> or empty.
+            </exception>
+            
+            <exception cref="T:Spotfire.Dxp.Framework.Library.LibraryException">
+            <list type="bullet">
+            <item>
+            performed when the application is run in offline mode,
+            </item>
+            <item>a communication error occurs while performing the look-up,
+            e.g. the Library cannot be accessed,</item>
+            <item>
+            the entry does not exist or is of an invalid type.
+            </item>
+            </list>
+            </exception>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.CreateLibraryLink(Spotfire.Dxp.Application.AnalysisApplication,System.String,System.String)">
+            <summary>
+             Creates an URL link to the library
+             (e.g. http://server/spotfire/library?guid=ec878f68-af67-4d2e-a014-a5d879ad5d03)
+            </summary>
+             <param name="application">The analysis application.</param>
+             <param name="path">The library path to the containg folder of the analysis</param>
+             <param name="name">The name of the library analysis file.</param>
+             <returns>An URL link to the library</returns>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Extension.TaskExecutionContext.Application">
+            <summary>
+            The TIBCO Spotfire Application.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus">
+            <summary>
+            Class holding the return status from an task execution.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.#ctor(System.Boolean,System.String)">
+            <summary>
+            Creates an instance with status flag and error message.
+            </summary>
+            <param name="ok">Status flag.</param>
+            <param name="errorMessage">Error message.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.#ctor(System.Boolean)">
+            <summary>
+            Creates an instance with status flag.
+            </summary>
+            <param name="ok">Status flag.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.#ctor(System.Exception)">
+            <summary>
+            Creates an instance from an exception.
+            Sets the status flag to false, includes exception information in the error message.
+            </summary>
+            <param name="ex">Exception.</param>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.Ok">
+            <summary>
+            Flag indicating if the task executed successfully.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskExecutionStatus.ErrorMessage">
+            <summary>
+            Message containing information about the error.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.TaskRegistry">
+            <summary>
+            The registry for as(automation services) tasks.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskRegistry.Register(Spotfire.Dxp.Automation.Extension.Task)">
+            <summary>
+            Register an task type by supplying an instance of the task.
+            </summary>
+            <param name="task">The task to use for registering the task type.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TaskRegistry.GetTaskInstance(System.Type)">
+            <summary>
+            Returns the registered task instance for an task type.
+            </summary>
+            <param name="taskType">The task type.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TaskRegistry.Tasks">
+            <summary>
+            Returns all task instances in the registry.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.TagReplacement">
+            <summary>
+            Class describing a replacement tag.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.#ctor(System.String,Spotfire.Dxp.Automation.Framework.TagReplacement.GetValueGenerator,System.String,System.Boolean)">
+            <summary>
+            Instantiate a tag replacer with a delegate that generates the actual value to replace
+            given a context
+            </summary>
+            <param name="tag"></param>
+            <param name="description"></param>
+            <param name="generator"></param>
+            <param name="dynamicEvaluation">True to always re-evaluate the value for every replacement,
+             false to evaluate only at beginning of job execution</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.#cctor">
+            <summary>
+            Initializes the <see cref="T:Spotfire.Dxp.Automation.Framework.TagReplacement"/> class.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.#ctor(System.String,Spotfire.Dxp.Automation.Framework.TagReplacement.GetValueGenerator,System.String)">
+            <summary>
+            Instantiate a tag replacer with a delegate that generates the actual value to replace
+            given a context
+            </summary>
+            <param name="tag"></param>
+            <param name="description"></param>
+            <param name="generator"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.FreezeTime">
+            <summary>
+            Call once before all time-based tag handling to freeze time for a while.
+            Must be matched with an UnfreezeTime call when done.
+            Can be stacked (FreezeTime+FreezeTime+UnfreezeTime+UnfreezeTime)
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.UnfreezeTime">
+            <summary>
+            <see cref="M:Spotfire.Dxp.Automation.Framework.TagReplacement.FreezeTime"/>
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.GetOpenDocumentName(Spotfire.Dxp.Application.AnalysisApplication,System.String)">
+            <summary>
+            Helper method for extracting an analysis name (which we think is the same as the window title of TS)
+            </summary>
+            <param name="analysisApplication"></param>
+            <param name="fallbackValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.TagReplacement.SanitizeForFileName(System.String)">
+            <summary>
+            Replaces / and \ with -,
+            : with .
+            and all other invalid characters with _
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TagReplacement.DynamicEvaluation">
+            <summary>
+            True if the tag wants to be re-evaluated every time
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.TagReplacement.Now">
+            <summary>
+            Time getter valid after calling <see cref="M:Spotfire.Dxp.Automation.Framework.TagReplacement.FreezeTime"/> at least once
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Framework.UnknownTask">
+            <summary>
+            This class is used to represent an task which could not be found in the tasks registry.
+            The serialize and deserialize methods in Job uses extra code to make sure
+            that all data is kept (non-destructive).
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.UnknownTask.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.UnknownTask.CloneFieldsToCore(Spotfire.Dxp.Automation.Extension.Task)">
+            <inheritdoc />
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.UnknownTask.ExecuteCore(Spotfire.Dxp.Automation.Extension.TaskExecutionContext)">
+            <summary>
+            Not implemented, will throw an exception.
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.UnknownTask.OriginalElementName">
+            <summary>
+            The element name in the original xml. Must not be changed before reserializing.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.UnknownTask.OriginalNamespace">
+            <summary>
+            The namespace in the original xml Must not be changed before reserializing.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.UnknownTask.UnknownTaskElements">
+            <summary>
+             Keeper of the unknown elements of the unregistered task
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Framework.UnknownTask.UnknownTaskAttributes">
+            <summary>
+            Keeper of the unknown attributes of the unregistered task
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Framework.UnknownTaskControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.UnknownTaskControl.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Framework.UnknownTaskControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Utilities.ErrorDialog">
+            <summary>
+            Basic dialog that shows details about exceptions.
+            </summary>
+        </member>
+        <member name="T:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase">
+            <summary>
+            The basic expandable error dialog to show information about exceptions.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.exception">
+            <summary>The exception for which to show the error message.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.helpKeyword">
+            <summary>Current help keyword. Supplied by error dialog callers.
+            </summary>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.initialWidth">
+            <summary>The initial width of the window.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Spotfire.Dxp.Automation.Utilities.ErrorDialog"/> class.
+            </summary>        
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Spotfire.Dxp.Automation.Utilities.ErrorDialog"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="title">The title.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.SetHelpButtonVisibility">
+            <summary>
+            Sets the help button visibility.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.SetOkCancelState">
+            <summary>
+            Shows OK and Cancel buttons instead of Close.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.SetOkState">
+            <summary>
+            Shows OK button instead of Close.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.AlignDetailsAndHideButtons">
+            <summary>
+            Aligns the details and hide buttons.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.GetExceptionString(System.Exception)">
+            <summary>
+            Gets the exception string.
+            </summary>
+            <param name="ex">The ex.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.ShowDetails(System.Boolean)">
+            <summary>
+            Shows the details.
+            </summary>
+            <param name="show">if set to <c>true</c> [show].</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.GetDescriptionText">
+            <summary>
+            Gets the description text.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.OnLoad(System.EventArgs)">
+            <summary>
+            OnLoad
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.TrySetText(System.String,System.Boolean)">
+            <summary>
+            Copies data to the clipboard ignoring any exceptions of type ExternalException.
+            </summary>
+            <param name="data">The data to place on the Clipboard.</param>
+            <param name="copy">true if you want data to remain on the Clipboard after this 
+            application exits;otherwise, false.</param>
+            <returns>True on sucess.</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.TrySetDataObject(System.Object,System.Boolean)">
+            <summary>
+            Copies data to the clipboard ignoring any exceptions of type ExternalException.
+            </summary>
+            <param name="data">The data to place on the Clipboard.</param>
+            <param name="copy">true if you want data to remain on the Clipboard after this 
+            application exits;otherwise, false.</param>
+            <returns>True on sucess.</returns>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.Message">
+            <summary>
+            Gets or sets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.DetailsException">
+            <summary>
+            Gets or sets the exception.
+            </summary>
+            <value>The exception.</value>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.IconImage">
+            <summary>
+            Gets or sets the icon that represents the error severity.
+            </summary>
+            <value>The icon image.</value>
+        </member>
+        <member name="P:Spotfire.Dxp.Automation.Utilities.ErrorDialogBase.HelpKeyword">
+            <summary>
+            Gets or sets the help keyword.
+            </summary>
+            <value>The help keyword.</value>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.Windows.Forms.FormStartPosition,System.String,System.String,System.Exception,System.String,System.String,System.Boolean,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            The private "Master-of-all-ShowDialog-methods" that does all the stuff.
+            It is called by the public static functions.
+            </summary>
+            <param name="startPos">The window start pos.</param>
+            <param name="title">The title.</param>
+            <param name="message">The message.</param>
+            <param name="ex">The ex.</param>
+            <param name="helpNamespace">The help namespace.</param>
+            <param name="helpKeyword">The help keyword.</param>
+            <param name="okCancel">if set to <c>true</c> [ok cancel].</param>
+            <param name="icon">The icon.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.String,System.String,System.Exception)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="ex"/> message as message text. Help settings are 
+            read from the exception.
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.String,System.String,System.Exception,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. Help settings are read 
+            from the exception.       
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="icon">The icon to represent the error severity.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.String,System.String,System.Exception,System.Windows.Forms.FormStartPosition)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. Help settings are read 
+            from the exception.       
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="startPosition">The start position of the dialog.</param>        
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.Windows.Forms.FormStartPosition,System.String,System.String,System.Exception,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. Help settings are read
+            from the exception.
+            </summary>
+            <param name="startPos">The window start pos.</param>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="icon">The icon to represent the error severity.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.String,System.String,System.Exception,System.String,System.String)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text.        
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="helpNamespace">The help namespace.</param>
+            <param name="helpKeyword">The help keyword.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialog(System.String,System.String,System.Exception,System.String,System.String,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> message text.               
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="helpNamespace">The help namespace.</param>
+            <param name="helpKeyword">The help keyword.</param>
+            <param name="icon">The icon to represent the error severity.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialogOkCancel(System.String,System.String,System.Exception)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. In addition; user 
+            can select OK or cancel. Help settings are read from the exception.
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <returns>DialogResult.OK if the user presses OK; else DialogResult.Cancel.</returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialogOkCancel(System.String,System.String,System.Exception,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. In addition; user 
+            can select OK or cancel. Help settings are read from the exception.
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="icon">The icon to represent the error severity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialogOkCancel(System.String,System.String,System.Exception,System.String,System.String)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. In addition; user 
+            can select OK or cancel.
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The ex.</param>
+            <param name="helpNamespace">The help namespace.</param>
+            <param name="helpKeyword">The help keyword.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.ShowDialogOkCancel(System.String,System.String,System.Exception,System.String,System.String,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            Shows the dialog with the title <paramref name="title"/> and the
+            <paramref name="message"/> as message text. In addition; user 
+            can select OK or cancel.        
+            </summary>
+            <param name="title">The dialog title.</param>
+            <param name="message">The main message to show if no UserMessage 
+            is found in the exception.</param>
+            <param name="ex">The exception.</param>
+            <param name="helpNamespace">The help namespace.</param>
+            <param name="helpKeyword">The help keyword.</param>
+            <param name="icon">The icon to represent the error severity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Spotfire.Dxp.Automation.Utilities.ErrorDialog"/> class.
+            This constructor is primary for use in PromptService.
+            </summary>
+            <param name="ex">The exception to show.</param>
+            <param name="caption">The caption of the dialog.</param>
+        </member>
+        <member name="F:Spotfire.Dxp.Automation.Utilities.ErrorDialog.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Spotfire.Dxp.Automation.Utilities.ErrorDialog.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>
