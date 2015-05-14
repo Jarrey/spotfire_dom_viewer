@@ -19,8 +19,9 @@
         {
             get
             {
-                var v = this.Invoke();
-                return v == null ? string.Empty : v.ToString();
+                // var v = this.Invoke();
+                // return v == null ? string.Empty : v.ToString();
+                return "Please invoke this method in right panel...";
             }
         }
 
